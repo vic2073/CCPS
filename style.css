@@ -1,8 +1,7 @@
 /* Reset styles */
-html body p h1 h2 img {
+html, body, p, h1, h2, img, i, li, footer {
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 a {
@@ -11,36 +10,36 @@ a {
 
 /* Body styles */
 body {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 16px;
   color: #555;
-  height: 100%;
 }
 
 /* Header styles */
 header {
   background-color: #333;
-  color: white;
-  text-align: center;
-  margin: -0.5em;
-  padding: 1em;
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  flex-direction: column;
+  align-items: right;
+  justify-content: center;
 }
 
 header h1 {
   margin: 0;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
 }
 
-nav {
-  display: flex;
-  align-items: center;
+.index {
+  text-decoration: none;
+}
+
+.index:hover {
+  cursor: pointer;
 }
 
 nav ul {
@@ -48,25 +47,29 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: right;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 nav li {
   margin-right: 1em;
   font-weight: bold;
-  font-size: 1.2rem;
 }
 
 nav a {
   color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
   transition: all 0.2s ease;
 }
 
-.logo {
-  height: 40px;
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffcc00;
 }
 
 /* Main styles */
@@ -81,8 +84,115 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  height: 100%;
   width: -moz-available;
   width: -webkit-fill-available;
+}
+
+/* General slide styles */
+.mySlides {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+}
+
+/* Slide content styles */
+.slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5); /* Transparent background */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 80%;
+  border-radius: 8px;
+}
+
+/* Slide transition effect */
+@keyframes fade {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
+
+.mySlides {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.w3-left, .w3-right, .w3-badge {
+  cursor: pointer;
+}
+
+.w3-badge {
+  height: 15px;
+  width: 15px;
+  padding: 0;
+}
+
+/* The flip card container  */
+
+.flip {
+  display: flex;
+  flex-direction: row;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Chrome, Safari 5 */
+  -moz-backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: orange;
+  color: white;
+}
+
+/* Style the back side */
+.flip-card-back {
+  color: white;
+  transform: rotateX(180deg);
+}
+
+.magic-flip {
+  background-color: orange;
 }
 
 #home {
@@ -96,20 +206,22 @@ section {
 }
 
 section h2 {
-  margin-bottom: 1em;
+  margin: 0 auto;
   padding: 1.5rem;
   font-size: 2rem;
   color: white;
   background: #333;
   text-transform: uppercase;
   font-weight: bold;
+  text-align: center;
 }
 
 section p {
-  line-height: 1.5;
+  line-height: 2rem;
   font-size: 1.1rem;
   margin-bottom: 1.5em;
   margin-left: 2rem;
+  font-weight: 600;
 }
 
 ul::before {
@@ -123,6 +235,33 @@ li::before {
   display: none;
   width: 1em;
   margin-left: -1em;
+}
+
+/* Footer */
+footer {
+  background-color: #0077cc;
+  color: white;
+  padding: 25px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+footer .contact-info {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+footer .social {
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+footer .social li {
+  margin: 0 10px;
 }
 
 /* Responsive styles */
